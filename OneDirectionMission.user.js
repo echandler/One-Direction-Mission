@@ -215,14 +215,14 @@ function makeWidget() {
     let arrowCont = document.createElement("div");
     arrowCont.id = "arrowCont";
     arrowCont.style.cssText = `
-        height: 200px;
+        height: 201px;
         width: 5px;
        // border: 1px solid red;
         transform: rotate(0deg);
         margin: auto;z-index: 1000; transition: all ease 100ms;
         position: absolute;
-        left: 97px;
-        top: -1px;`;
+        left: 98px;
+        top: 0px;`;
 
     gArrowCont = arrowCont;
 
