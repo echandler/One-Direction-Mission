@@ -1,11 +1,12 @@
 // ==UserScript==
-// @name         One Direction Mission v1.0
+// @name         One Direction Mission v1.1
 // @namespace    GeoGuessr scripts
-// @version      1.0
+// @version      1.1
 // @description  Only travel in one direction.
 // @match        https://www.geoguessr.com/*
 // @author       echandler
 // @run-at       document-start
+// @downloadURL  https://github.com/echandler/One-Direction-Mission/raw/main/OneDirectionMission.user.js
 // @license      MIT
 // @grant        GM_addStyle
 // ==/UserScript==
@@ -340,10 +341,13 @@ function makeWidget() {
         }
     });
 
-    gWidgetCont.addEventListener("wheel", function (e) {
-        if (Math.abs(e.deltaY) > 120) {
-            return;
-        }
+    gWidgetCont.addEventListener("wheel", widgetWheel, {once:true});
+
+    function widgetWheel (e) {
+        setTimeout(()=>{
+            gWidgetCont.addEventListener("wheel", widgetWheel, {once:true});
+        }, 50);
+
         let scale = lc.get("scale") || 1;
 
         scale += e.deltaY < 0 ? 0.25 : -0.25;
@@ -352,7 +356,7 @@ function makeWidget() {
         gWidgetCont.style.transform = `scale(${scale})`;
 
         lc.set("scale", scale);
-    });
+    };
 }
 
 let lc = {
