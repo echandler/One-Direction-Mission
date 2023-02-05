@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         One Direction Mission v1.1
+// @name         One Direction Mission v1.2
 // @namespace    GeoGuessr scripts
-// @version      1.1
+// @version      1.2
 // @description  Only travel in one direction.
 // @match        https://www.geoguessr.com/*
 // @author       echandler
